@@ -1,5 +1,18 @@
 *.class
 
+# Sublime files #
+*.sublime-workspace
+.cache
+
+# sbt output #
+project/target/
+/target/
+
+# Eclipse files #
+
+.classpath
+.project
+
 # Package Files #
 *.jar
 *.war
