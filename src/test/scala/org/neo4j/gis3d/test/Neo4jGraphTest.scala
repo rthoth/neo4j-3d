@@ -1,39 +1,36 @@
 package org.neo4j.gis3d.test
 
+import org.specs2.mutable.After
 import org.neo4j.graphdb.GraphDatabaseService
 import org.neo4j.graphdb.factory.GraphDatabaseFactory
-import org.specs2._
-import org.specs2.specification.FragmentsBuilder.ImplicitParam
 
 trait Neo4jGraphTest {
 
-	var graph: GraphDatabaseService = null
-
-	class Graph(name: String) extends mutable.After {
-
-		private lazy val Path = "/tmp/neo4j-3d-test-" + name
+	private object Graph {
+		private val Path = "/tmp/neo4j-3d-test."
 		private lazy val factory = new GraphDatabaseFactory()
+
+		def apply(name: String) = synchronized {
+			val path = Path + name
+			factory.newEmbeddedDatabase(path)
+		}
+	}
+
+	class Graph extends After {
+
 		private var gds: Option[GraphDatabaseService] = None
 
-		override def after {
-			if (!gds.isEmpty)
-				gds.get.shutdown()
-		}
-
-		def graph: GraphDatabaseService = gds match {
+		def graph = gds match {
 			case Some(ds) => ds
 			case None =>
-				gds = Some(factory.newEmbeddedDatabase(Path))
+				gds = Some(Graph(this.getClass.getName))
 				gds.get
+		}
+
+		override def after = gds match {
+			case Some(gds) => gds.shutdown()
+			case None => ()
 		}
 	}
 
-	def openGraph(name: String) = {
-		graph = new Graph(name).graph
-	}
-
-	def closeGraph = {
-		if (graph != null)
-			graph.shutdown();
-	}
 }

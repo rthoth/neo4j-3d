@@ -8,11 +8,9 @@ import scala.math.random
 
 class Gis3DDatabaseServiceSpec extends Specification with Neo4jGraphTest with JTSTest {
 
-	step(openGraph("Gis3d-01"))
-
 	"A Gis3D DatabaseService" should {
 
-		"create or get a new layer" in {
+		"create or get a new layer" in new Graph {
 
 			val gis3dgds = new Gis3DDatabaseService(graph)
 
@@ -21,11 +19,8 @@ class Gis3DDatabaseServiceSpec extends Specification with Neo4jGraphTest with JT
 			println("#1")
 		}
 
-		step(closeGraph)
-		step(openGraph("Gis3d-xx"))
-
-		"create a new 3D Point" in {
-			val (x, y, z) = (-50 + random * 100, -50 + random * 100, -50 + random * 100)
+		"create a new 3D Point" in new Graph {
+			val x, y, z = -50 + random * 100
 
 			val gis3dgds = new Gis3DDatabaseService(graph)
 			val layer = gis3dgds.getOrCreateLayer("A test layer #1")
@@ -34,7 +29,4 @@ class Gis3DDatabaseServiceSpec extends Specification with Neo4jGraphTest with JT
 			println("#2")
 		}
 	}
-
-	step(closeGraph)
-
 }
