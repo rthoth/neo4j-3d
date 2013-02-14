@@ -24,7 +24,7 @@ public class Gis3DDatabaseService {
 				Gis3DRelationshipTypes.LAYER, Direction.OUTGOING)) {
 			final Node layer = relation.getEndNode();
 			if (layerName.equals(layer.getProperty(Gis3DProperties.LAYER_NAME))) {
-				return new DefaultLayer(layer);
+				return new DefaultLayer(layer, gds);
 			}
 		}
 
@@ -39,7 +39,7 @@ public class Gis3DDatabaseService {
 				node.setProperty(Gis3DProperties.LAYER_NAME, layerName);
 				gds.getReferenceNode().createRelationshipTo(node,
 						Gis3DRelationshipTypes.LAYER);
-				return new DefaultLayer(node);
+				return new DefaultLayer(node, gds);
 			}
 		});
 	}
