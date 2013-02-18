@@ -1,15 +1,15 @@
-package org.neo4j.gis3d.core;
+package neo4j3D.core;
 
 public class Boundary {
 
 	private double[] boundary;
 
 	/**
-	 * 3D - X0,Y0,Z0,X1,Y1,Z0
+	 * 3D - X0,Y0,Z0,X1,Y1,Z1
 	 * 
 	 *  _______ 1 
 	 * /_____ /|
-	 * |     | | 
+	 * |     | |
 	 * |     | | 
 	 * |_____|/
 	 * 0
@@ -25,7 +25,10 @@ public class Boundary {
 
 	public boolean within(double[] other) {
 		if (other != null && other.length == 6) {
-			
+			if (other != boundary) {
+				
+			} else
+				return true;
 		}
 		return false;
 	}

@@ -1,13 +1,12 @@
-package org.neo4j.gis3d.test
+package neo4j3d.api.test
 
 import scala.Some.apply
 import org.neo4j.graphdb.GraphDatabaseService
 import org.neo4j.graphdb.factory.GraphDatabaseFactory
-import scala.collection.mutable.Set
-import grizzled.slf4j.Logger
 import grizzled.slf4j.Logging
 import org.specs2.mutable.After
 import org.neo4j.graphdb.Transaction
+import scala.collection.mutable.Set
 
 trait Neo4jGraphTest {
 

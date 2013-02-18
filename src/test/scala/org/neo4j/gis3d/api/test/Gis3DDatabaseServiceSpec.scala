@@ -5,7 +5,7 @@ import scala.math.random
 import org.neo4j.gis3d.Gis3DProperties
 import org.neo4j.gis3d.api.Gis3DDatabaseService
 import org.neo4j.gis3d.core.Point
-import org.neo4j.gis3d.test.Neo4jGraphTest
+import neo4j3d.api.test.Neo4jGraphTest
 import org.specs2.mutable.Specification
 
 class Gis3DDatabaseServiceSpec extends Specification with Neo4jGraphTest {

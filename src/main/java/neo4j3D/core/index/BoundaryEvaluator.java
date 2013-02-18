@@ -1,8 +1,9 @@
-package org.neo4j.gis3d.core.index;
+package neo4j3D.core.index;
 
-import org.neo4j.gis3d.Gis3DProperties;
-import org.neo4j.gis3d.Gis3DRelationshipTypes;
-import org.neo4j.gis3d.core.Boundary;
+import neo4j3D.Properties;
+import neo4j3D.RelationshipTypes;
+import neo4j3D.core.Boundary;
+
 import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Path;
@@ -22,11 +23,11 @@ public class BoundaryEvaluator implements Evaluator {
 		final Node current = path.endNode();
 
 		boolean within = boundary.within((double[]) current
-				.getProperty(Gis3DProperties.BOUNDARY));
+				.getProperty(Properties.BOUNDARY));
 		boolean hasSub = false;
 
 		if (within)
-			hasSub = current.hasRelationship(Gis3DRelationshipTypes.INDEX,
+			hasSub = current.hasRelationship(RelationshipTypes.INDEX,
 					Direction.OUTGOING);
 
 		return Evaluation.of(!hasSub && within, !hasSub);

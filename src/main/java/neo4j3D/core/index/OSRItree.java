@@ -1,8 +1,9 @@
-package org.neo4j.gis3d.core.index;
+package neo4j3D.core.index;
 
-import org.neo4j.gis3d.api.LayerIndex;
-import org.neo4j.gis3d.core.Boundary;
-import org.neo4j.gis3d.core.Geometry;
+import neo4j3D.api.LayerIndex;
+import neo4j3D.core.Boundary;
+import neo4j3D.core.Geometry;
+
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.kernel.Traversal;

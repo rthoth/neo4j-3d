@@ -1,9 +1,10 @@
-package org.neo4j.gis3d.core;
+package neo4j3D.core;
 
-import org.neo4j.gis3d.Gis3DRelationshipTypes;
-import org.neo4j.gis3d.api.Layer;
-import org.neo4j.gis3d.api.LayerIndex;
-import org.neo4j.gis3d.core.index.OSRItree;
+import neo4j3D.RelationshipTypes;
+import neo4j3D.api.Layer;
+import neo4j3D.api.LayerIndex;
+import neo4j3D.core.index.OSRItree;
+
 import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
@@ -28,7 +29,7 @@ public class DefaultLayer implements Layer {
 	private LayerIndex getIndex() {
 		if (index == null) {
 			Relationship relation = this.layerNode.getSingleRelationship(
-					Gis3DRelationshipTypes.LAYER_INDEX, Direction.OUTGOING);
+					RelationshipTypes.LAYER_INDEX, Direction.OUTGOING);
 
 			Node indexNode = null;
 			if (relation == null) {
@@ -37,7 +38,7 @@ public class DefaultLayer implements Layer {
 					public Node apply(GraphDatabaseService gds) {
 						Node indexNode = gds.createNode();
 						layerNode.createRelationshipTo(indexNode,
-								Gis3DRelationshipTypes.LAYER_INDEX);
+								RelationshipTypes.LAYER_INDEX);
 						return indexNode;
 					}
 				});

@@ -6,7 +6,7 @@
 
 # sbt output #
 project/target/
-/target/
+target/
 
 # Eclipse files #
 

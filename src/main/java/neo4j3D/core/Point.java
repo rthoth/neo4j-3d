@@ -1,4 +1,4 @@
-package org.neo4j.gis3d.core;
+package neo4j3D.core;
 
 import java.io.Serializable;
 

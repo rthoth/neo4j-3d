@@ -1,12 +1,12 @@
-package org.neo4j.gis3d;
+package neo4j3D;
 
-public class Gis3DProperties {
+public class Properties {
 
 	public static final String LAYER_NAME = "layerName";
 	public static final String BOUNDARY = "boundary";
 	public static final String COORDINATES = "coordinates";
 
-	private Gis3DProperties() {
+	private Properties() {
 
 	}
 

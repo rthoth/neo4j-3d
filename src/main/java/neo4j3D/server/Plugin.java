@@ -1,7 +1,8 @@
-package org.neo4j.gis3d.server;
+package neo4j3D.server;
 
-import org.neo4j.gis3d.api.Gis3DDatabaseService;
-import org.neo4j.gis3d.api.Layer;
+import neo4j3D.api.Layer;
+import neo4j3D.core.DefaultSpatialGraphDatabaseService;
+
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.server.plugins.Parameter;
 import org.neo4j.server.plugins.ServerPlugin;
@@ -12,6 +13,6 @@ public class Plugin extends ServerPlugin {
 	public Layer createLayer(@Source final GraphDatabaseService gds,
 			@Parameter(name = "name") final String name) {
 
-		return new Gis3DDatabaseService(gds).getOrCreateLayer(name);
+		return new DefaultSpatialGraphDatabaseService(gds).getOrCreateLayer(name);
 	}
 }
