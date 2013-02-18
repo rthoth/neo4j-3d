@@ -1,6 +1,7 @@
 package org.neo4j.gis3d.api.test
 
 import scala.math.random
+<<<<<<< HEAD
 
 import org.neo4j.gis3d.Gis3DProperties
 import org.neo4j.gis3d.api.Gis3DDatabaseService
@@ -8,6 +9,15 @@ import org.neo4j.gis3d.core.Point
 import neo4j3d.api.test.Neo4jGraphTest
 import org.specs2.mutable.Specification
 
+=======
+
+import org.neo4j.gis3d.Gis3DProperties
+import org.neo4j.gis3d.api.Gis3DDatabaseService
+import org.neo4j.gis3d.core.Point
+import org.neo4j.gis3d.test.Neo4jGraphTest
+import org.specs2.mutable.Specification
+
+>>>>>>> f9dcce5e6cef47339a9d2253ecac298908b94baa
 class Gis3DDatabaseServiceSpec extends Specification with Neo4jGraphTest {
 
 	"A Gis3D DatabaseService" should {
