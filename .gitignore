@@ -4,3 +4,11 @@
 *.jar
 *.war
 *.ear
+
+# sbt
+target/
+.cache
+
+# eclipse
+.project
+.classpath
