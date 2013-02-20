@@ -1,5 +1,7 @@
 package neo4j3d.core;
 
+import java.util.Map;
+
 import neo4j3d.api.Layer;
 import neo4j3d.api.SpatialGraphDatabaseService;
 import neo4j3d.api.SpatialProperties;
@@ -16,7 +18,9 @@ public class SpatialGraphDatabaseServiceImpl extends
 	}
 
 	@Override
-	protected Layer createLayer(final String name, final Index<Node> index) {
+	protected Layer createLayer(final String name, final Index<Node> index,
+			final Map<String, Object> properties) {
+
 		return TX.tx(gds, new TXE<Layer>() {
 			@Override
 			public Layer apply(GraphDatabaseService gds) {
@@ -31,7 +35,7 @@ public class SpatialGraphDatabaseServiceImpl extends
 				layerNode.createRelationshipTo(indexNode,
 						SpatialRelationShipType.LAYER_INDEX);
 
-				return new LayerImpl(layerNode);
+				return new LayerImpl(layerNode, gds, properties);
 			}
 		});
 	}

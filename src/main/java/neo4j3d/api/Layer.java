@@ -8,6 +8,6 @@ public interface Layer {
 
 	public Node getRoot();
 
-	public Layer add(Geometry geometry);
+	public Layer add(Node node, Geometry geometry);
 
 }

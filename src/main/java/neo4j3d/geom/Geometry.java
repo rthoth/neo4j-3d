@@ -1,5 +1,7 @@
 package neo4j3d.geom;
 
-public class Geometry {
+public abstract class Geometry {
+
+	public abstract BBOX getBBOX();
 
 }

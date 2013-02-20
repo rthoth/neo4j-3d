@@ -1,5 +1,7 @@
 package neo4j3d.api;
 
+import java.util.Map;
+
 import neo4j3d.core.LayerImpl;
 
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -16,7 +18,8 @@ public abstract class SpatialGraphDatabaseService {
 		this.gds = gds;
 	}
 
-	protected abstract Layer createLayer(String name, Index<Node> index);
+	protected abstract Layer createLayer(String name, Index<Node> index,
+			Map<String, Object> properties);
 
 	public Layer getLayer(String name) {
 		Index<Node> index = getNodeIndex(LAYERS_INDEX);
@@ -25,18 +28,18 @@ public abstract class SpatialGraphDatabaseService {
 		if (node == null)
 			throw new NoResultException("Layer " + name);
 
-		return new LayerImpl(node);
+		return new LayerImpl(node, gds);
 	}
 
 	protected Index<Node> getNodeIndex(String name) {
 		return gds.index().forNodes(name);
 	}
 
-	public Layer getOrCreateLayer(String name) {
+	public Layer getOrCreateLayer(String name, Map<String, Object> properties) {
 		try {
 			return getLayer(name);
 		} catch (NoResultException e) {
-			return createLayer(name, getNodeIndex(LAYERS_INDEX));
+			return createLayer(name, getNodeIndex(LAYERS_INDEX), properties);
 		}
 	}
 

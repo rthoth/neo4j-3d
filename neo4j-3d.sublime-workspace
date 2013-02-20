@@ -1,0 +1,1116 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pr",
+				"println"
+			],
+			[
+				"prin",
+				"println"
+			],
+			[
+				"pri",
+				"print"
+			],
+			[
+				"co",
+				"couchURL"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"pa",
+				"parseInt"
+			],
+			[
+				"st",
+				"stats"
+			],
+			[
+				"u",
+				"util"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"fi",
+				"file"
+			],
+			[
+				"pro",
+				"promise"
+			],
+			[
+				"page",
+				"pages"
+			],
+			[
+				"res",
+				"resolver"
+			],
+			[
+				"data",
+				"data_dir"
+			],
+			[
+				"X",
+				"XMLHttpRequest"
+			],
+			[
+				"ex",
+				"extend"
+			],
+			[
+				"arg",
+				"args"
+			],
+			[
+				"li",
+				"listener"
+			],
+			[
+				"ls",
+				"listener"
+			],
+			[
+				"on",
+				"onprogress"
+			],
+			[
+				"dotclo",
+				"dotcloud"
+			],
+			[
+				"la",
+				"layer"
+			],
+			[
+				"th",
+				"throw"
+			],
+			[
+				"do",
+				"dotcloud"
+			],
+			[
+				"dot",
+				"dotcloud"
+			],
+			[
+				"a",
+				"attrs"
+			],
+			[
+				"La",
+				"Layers"
+			],
+			[
+				"e",
+				"exports"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"cac",
+				"cache"
+			],
+			[
+				"ca",
+				"cache"
+			],
+			[
+				"cach",
+				"cacheFileName"
+			],
+			[
+				"clo",
+				"closeSync"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"su",
+				"supportedType"
+			],
+			[
+				"map",
+				"mapFactory"
+			],
+			[
+				"T",
+				"THREE"
+			],
+			[
+				"sw",
+				"switchCall"
+			],
+			[
+				"cu",
+				"cubeZ"
+			],
+			[
+				"c",
+				"cubeY"
+			],
+			[
+				"cube",
+				"cubeX"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"ren",
+				"renderer"
+			],
+			[
+				"rend",
+				"renderer"
+			],
+			[
+				"off",
+				"offsetHeight"
+			],
+			[
+				"reu",
+				"requestAnimationFrame"
+			],
+			[
+				"ge",
+				"geometry"
+			],
+			[
+				"tr",
+				"three"
+			],
+			[
+				"Ma",
+				"MapController"
+			],
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"user",
+				"userService"
+			],
+			[
+				"User",
+				"UserRepositoryImpl"
+			],
+			[
+				"USer",
+				"UserRepositoryImplComponent"
+			],
+			[
+				"UserReposit",
+				"UserRepositoryImpl"
+			],
+			[
+				"UserRe",
+				"UserRepositoryComponent"
+			],
+			[
+				"UserS",
+				"UserServiceComponent"
+			],
+			[
+				"use",
+				"user"
+			],
+			[
+				"de",
+				"delete"
+			],
+			[
+				"Fake",
+				"FakeRequest"
+			],
+			[
+				"per",
+				"period_end"
+			],
+			[
+				"ip_f",
+				"ip_finality_id_seq"
+			],
+			[
+				"fin",
+				"fin_id"
+			],
+			[
+				"ip",
+				"ip_id"
+			],
+			[
+				"i",
+				"ip_id"
+			],
+			[
+				"us",
+				"usage_id"
+			],
+			[
+				"gra",
+				"grant_water_legacy_id_seq"
+			],
+			[
+				"se",
+				"sequence"
+			],
+			[
+				"gr",
+				"grant_water"
+			],
+			[
+				"gran",
+				"grant_water_id_seq"
+			],
+			[
+				"Pla",
+				"Play2WarKeys"
+			],
+			[
+				"akv",
+				"akvoCore"
+			],
+			[
+				"ak",
+				"akvoCore"
+			],
+			[
+				"gw",
+				"gw2"
+			],
+			[
+				"g",
+				"guice"
+			],
+			[
+				"hi",
+				"hibernate-core"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
+				"t",
+				"timestamp"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"inte",
+				"intervation_point"
+			],
+			[
+				"fina",
+				"finality_id_seq"
+			],
+			[
+				"f",
+				"finality"
+			],
+			[
+				"usa",
+				"usage_id_seq"
+			],
+			[
+				"next",
+				"next_id"
+			],
+			[
+				"ma",
+				"matrix2012_2013"
+			],
+			[
+				"tu",
+				"tuple"
+			],
+			[
+				"Tu",
+				"Tuple2"
+			],
+			[
+				"get",
+				"getA"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "project/Project.scala",
+			"settings":
+			{
+				"buffer_size": 233,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build.sbt",
+			"settings":
+			{
+				"buffer_size": 610,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/build.sbt",
+			"settings":
+			{
+				"buffer_size": 255,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/tmp/dados.csv",
+			"settings":
+			{
+				"buffer_size": 23850,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 285.0,
+		"selected_items":
+		[
+			[
+				"ssca",
+				"Set Syntax: Scala"
+			],
+			[
+				"sssca",
+				"Set Syntax: Scala"
+			],
+			[
+				"sscala",
+				"Set Syntax: Scala"
+			],
+			[
+				"ssscal",
+				"Set Syntax: Scala"
+			],
+			[
+				"ssjo",
+				"Set Syntax: JSON"
+			],
+			[
+				"ss",
+				"Set Syntax: Scala"
+			],
+			[
+				"sss",
+				"Set Syntax: Scala"
+			],
+			[
+				"conv",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"con",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"conver",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 160.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/rthoth.ubuntu/workplace/neo4j-3d/project/plugins.sbt",
+		"/home/rthoth.ubuntu/git/neo4j/community/server-api/src/main/java/org/neo4j/server/plugins/ServerPlugin.java",
+		"/home/rthoth.ubuntu/git/neo4j-spatial/src/main/java/org/neo4j/gis/spatial/DefaultLayer.java",
+		"/home/rthoth.ubuntu/workplace/neo4j-3d/project/Project.scala",
+		"/home/rthoth.ubuntu/workplace/neo4j-3d/build.sbt",
+		"/home/rthoth.ubuntu/git/neo4j-spatial/src/main/java/org/neo4j/gis/spatial/LayerRTreeIndex.java",
+		"/home/rthoth.ubuntu/Desktop/internet",
+		"/home/rthoth.ubuntu/git/neo4j-graph-collections/src/main/java/org/neo4j/collections/rtree/RTreeIndex.java",
+		"/home/rthoth.ubuntu/workplace/neo4j-3d/test/build.sbt",
+		"/home/rthoth.ubuntu/Desktop/deus",
+		"/media/rthoth/PICO mini/teste.txt",
+		"/home/rthoth.ubuntu/git/neo4j-spatial/src/main/java/org/neo4j/gis/spatial/server/plugin/SpatialPlugin.java",
+		"/home/rthoth.ubuntu/git/neo4j/community/embedded-examples/src/test/java/org/neo4j/examples/Neo4jBasicTest.java",
+		"/home/rthoth.ubuntu/git/neo4j/community/kernel/src/test/java/org/neo4j/test/TestGraphDatabaseFactory.java",
+		"/home/rthoth.ubuntu/Pictures/2013-01-30/ren.scala",
+		"/home/rthoth.ubuntu/git/neo4j/community/kernel/src/main/java/org/neo4j/graphdb/Direction.java",
+		"/home/rthoth.ubuntu/Pictures/2013-01-30/GoPro/ren.scala",
+		"/home/rthoth.ubuntu/Pictures/2013-01-26/ren.scala",
+		"/home/rthoth.ubuntu/git/neo4j/community/kernel/src/test/java/org/neo4j/test/ImpermanentGraphDatabase.java",
+		"/home/rthoth.ubuntu/git/neo4j/community/graph-algo/src/main/java/org/neo4j/graphalgo/impl/path/ShortestPath.java",
+		"/home/rthoth.ubuntu/git/neo4j/community/server-examples/src/main/java/org/neo4j/examples/server/plugins/GetAll.java",
+		"/home/rthoth.ubuntu/git/neo4j-graph-collections/src/main/java/org/neo4j/collections/rtree/SpatialIndexReader.java",
+		"/home/rthoth.ubuntu/workplace/neo4j-3d/.gitignore",
+		"/home/rthoth.ubuntu/workplace/neo4j-3d/.classpath",
+		"/home/rthoth.ubuntu/workplace/NoSQL3DExperiments/client-side/scala/src/main/scala/App.scala",
+		"/home/rthoth.ubuntu/workplace/scala-study/language/Programming in Scala/Chapter 15/Intro.scala",
+		"/home/rthoth.ubuntu/workplace/scala-study/language/Programming in Scala/Chapter 19/chapter.scala",
+		"/home/rthoth.ubuntu/workplace/geocouch.sublime-project",
+		"/home/rthoth.ubuntu/workplace/NoSQL3DExperiments/client-side/scala/build.sbt",
+		"/home/rthoth.ubuntu/workplace/NoSQL3DExperiments/server-side/scala/couchbd/project/plugins.sbt",
+		"/home/rthoth.ubuntu/workplace/NoSQL3DExperiments/server-side/scala/mongodb/build.sbt",
+		"/home/rthoth.ubuntu/workplace/spacebase/project/Build.scala",
+		"/home/rthoth.ubuntu/workplace/spacebase/src/main/scala/daemon.scala",
+		"/home/rthoth.ubuntu/workplace/spacebase/src/test/scala/daemon.scala",
+		"/home/rthoth.ubuntu/workplace/spacebase/build.sbt",
+		"/home/rthoth.ubuntu/workplace/neo4jweb/neo4j-gis-web-test/build.sbt",
+		"/home/rthoth.ubuntu/workplace/neo4jweb/neo4j-test/project/Build.scala",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/mocha-test/package.json",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range-bytes/app.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range-page/get.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range-bytes/get.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range-bytes/head.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range-bytes/util.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range-page/head.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range-page/server.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/htt-range-bytes/package.json",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range/package.json",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/.gitignore",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range/server.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range/get.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range/head.js",
+		"/home/rthoth.ubuntu/workplace/nodejs.examples/http-range/util.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/controllers/MainController.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud.js/Map.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud.js/Layer.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud.js/DotCloudLayer.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud.js/net.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/server-side/app.js",
+		"/home/rthoth.ubuntu/git/spray/project/Build.scala",
+		"/home/rthoth.ubuntu/git/spray/examples/spray-can/simple-http-server/src/main/scala/spray/examples/Main.scala",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud.js/index.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/index.html",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/modules/dotcloud.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/modules/layer.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/app.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/server-side/node_modules/connect-cache/node_modules/connect/node_modules/formidable/test/fixture/http/special-chars-in-filename/info.md",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/lib/rem-js/rem.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/services/Layer.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/Layers.json",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/test/e2e/scenarios.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/directives/dotInject.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/filters.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/modules.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/directives.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/controllers.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/layers.json",
+		"/home/rthoth.ubuntu/work/lemaf/rellll",
+		"/tmp/myFirstapp/conf/META-INF/persistence.xml",
+		"/tmp/myFirstapp/conf/application.conf",
+		"/tmp/myFirstapp/app/models/User.java",
+		"/tmp/myFirstapp/app/models/Task.java",
+		"/tmp/myFirstapp/app/models/oracle/Lordshark.java",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud/DotCloudLayer.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud/Layer.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/server-side/package.json",
+		"/home/rthoth.ubuntu/workplace/akvo/webapp/project/Build.scala",
+		"/home/rthoth.ubuntu/applications/play-2.1-RC1/framework/skeletons/java-skel/project/Build.scala",
+		"/tmp/myFirstapp/project/Build.scala",
+		"/home/rthoth.ubuntu/applications/play-2.0.4/framework/skeletons/java-skel/project/Build.scala",
+		"/home/rthoth.ubuntu/workplace/akvo/webapp/build.sbt",
+		"/home/rthoth.ubuntu/applications/play/framework/skeletons/java-skel/project/Build.scala",
+		"/home/rthoth.ubuntu/applications/play/framework/skeletons/java-skel/project/plugins.sbt",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/server-side/node_modules/connect-cache/lib/connect-cache.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/scripts/web-server.js",
+		"/home/rthoth.ubuntu/Ubuntu One/gt4w/experience/608000-7824000g.txt",
+		"/home/rthoth.ubuntu/work/gt4w/cloud/cloudpoints.rar/608000-7824000v.txt",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/dotcloud/Map.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/lib/chic/chic.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/lib/chic.js",
+		"/tmp/jsperf.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/css/dotcloud.css",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/lib/99lime/prettify.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/css/app.css",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/three.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/js/services.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/test/unit/controllersSpec.js",
+		"/home/rthoth.ubuntu/workplace/dotcloud.js/app/layers.js",
+		"/home/rthoth.ubuntu/Downloads/twitter-bootstrap-558bc52/README.md",
+		"/home/rthoth.ubuntu/work/gt4w/cloud/cloudpoints.rar/608000-7824000g.txt",
+		"/home/rthoth.ubuntu/Downloads/twitter-bootstrap-558bc52/bootstrap.css",
+		"/home/rthoth.ubuntu/Downloads/twitter-bootstrap-558bc52/less/bootstrap.less",
+		"/home/rthoth.ubuntu/Downloads/htmlkickstart-joshuagatcke/js/kickstart.js",
+		"/home/rthoth.ubuntu/Downloads/htmlkickstart-joshuagatcke/style.css",
+		"/home/rthoth.ubuntu/Downloads/htmlkickstart-joshuagatcke/README",
+		"/home/rthoth.ubuntu/Downloads/htmlkickstart-joshuagatcke/license.txt",
+		"/home/rthoth.ubuntu/workplace/angular-phonecat/app/js/controllers.js",
+		"/tmp/data.txt",
+		"/home/rthoth.ubuntu/workplace/akvo/webapp/target/specs2-reports/stats/test.functional.GrantWaterControllerTest.stats",
+		"/home/rthoth.ubuntu/workplace/scala-study/IoC_DI/CakaPattern.scala",
+		"/home/rthoth.ubuntu/workplace/akvo/app/project/Build.scala",
+		"/home/rthoth.ubuntu/workplace/akvo/app/conf/application.conf",
+		"/home/rthoth.ubuntu/workplace/akvo/app/conf/ebeane.propertiese",
+		"/home/rthoth.ubuntu/workplace/akvo/app/modules/core/build.sbt",
+		"/home/rthoth.ubuntu/workplace/akvo/app/conf/evolutions/default/1.sql",
+		"/home/rthoth.ubuntu/workplace/akvo/app/conf/evolutions/default/2.sql",
+		"/home/rthoth.ubuntu/work/java/postgis/postgis-2.0.2/java/jdbc/src/org/postgis/DriverWrapper.java",
+		"/home/rthoth.ubuntu/work/java/postgis/postgis-2.0.2/java/jdbc/src/org/postgresql/driverconfig.properties"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"=======\n",
+			"index",
+			"addGeomNode",
+			"adjustParentBoundingBox",
+			"adjustPathBoundingBox",
+			"class SpatialIndexReader",
+			"siz",
+			"str",
+			"options",
+			"dir",
+			"rangeDir",
+			"fileId",
+			"factory",
+			".js",
+			"onreadstatechange",
+			"Layer",
+			"ClientRe",
+			" $,",
+			"factory",
+			"json",
+			"resize",
+			"MapController",
+			"jndi",
+			"jndiName",
+			"ttl",
+			"result",
+			")\n",
+			");",
+			"extend",
+			"dotcloud",
+			"dotLayer",
+			"DotLayer",
+			"dotLayer",
+			"type",
+			"exports",
+			"$scope.map",
+			" $",
+			"$scope.map",
+			"map",
+			"Prot",
+			"Class",
+			"function",
+			"MapController",
+			"20",
+			"root",
+			"...",
+			");\n",
+			"showLayer",
+			"...",
+			"div",
+			"> ",
+			"h1",
+			"h3",
+			"h1",
+			">\n",
+			"period_end",
+			"period_start",
+			"userRepository",
+			"UserRepository",
+			"userRepository",
+			"UserRepository",
+			"userRepository",
+			"user",
+			"\n	",
+			"String",
+			"cla",
+			"typesAdder",
+			"addGT",
+			"getObject",
+			"true",
+			")\n",
+			"request",
+			"					",
+			"FakeRequest",
+			"[]\n",
+			"\n					",
+			"list",
+			")\n",
+			"driver",
+			"\n	",
+			";\n",
+			"scalaVersion",
+			"2013",
+			" if exists",
+			"if exists",
+			"key",
+			"}                  ",
+			"core",
+			"module",
+			"uic",
+			"ui",
+			"uic",
+			"ui",
+			"guice",
+			"path",
+			"akvoCore",
+			"transitive",
+			"                                                                                                                                                                               ",
+			"next_id",
+			"varchar",
+			"no action",
+			"boolean",
+			",\n",
+			"test",
+			"public",
+			"previous_id",
+			"finality_id",
+			"(\n",
+			"create",
+			"int",
+			"ip",
+			"ip_id_seq",
+			"\n	",
+			"command",
+			"move",
+			"Outorga",
+			"gw_id_seq",
+			"gw",
+			"outorga",
+			"grant_water",
+			"outorga_id_seq",
+			"\"\n",
+			"4,",
+			",\n",
+			"tuple",
+			"			\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "project/Project.scala",
+					"settings":
+					{
+						"buffer_size": 233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								176,
+								176
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "build.sbt",
+					"settings":
+					{
+						"buffer_size": 610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "test/build.sbt",
+					"settings":
+					{
+						"buffer_size": 255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								255,
+								255
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Scala/Scala.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/tmp/dados.csv",
+					"settings":
+					{
+						"buffer_size": 23850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								446,
+								446
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"build",
+				"neo4j-3d/build.sbt"
+			],
+			[
+				"bui",
+				"neo4j-3d/build.sbt"
+			],
+			[
+				"rtree",
+				"neo4j-graph-collections/src/main/java/org/neo4j/collections/rtree/RTreeIndex.java"
+			],
+			[
+				"direction",
+				"neo4j/community/kernel/src/main/java/org/neo4j/graphdb/Direction.java"
+			],
+			[
+				"imperma",
+				"neo4j/community/kernel/src/test/java/org/neo4j/test/ImpermanentGraphDatabase.java"
+			],
+			[
+				"testgrap",
+				"neo4j/community/kernel/src/test/java/org/neo4j/test/TestGraphDatabaseFactory.java"
+			],
+			[
+				"neojbas",
+				"neo4j/community/embedded-examples/src/test/java/org/neo4j/examples/Neo4jBasicTest.java"
+			],
+			[
+				"sortepat",
+				"neo4j/community/graph-algo/src/main/java/org/neo4j/graphalgo/impl/path/ShortestPath.java"
+			],
+			[
+				"getall",
+				"neo4j/community/server-examples/src/main/java/org/neo4j/examples/server/plugins/GetAll.java"
+			],
+			[
+				"spatia",
+				"neo4j-graph-collections/src/main/java/org/neo4j/collections/rtree/SpatialIndexReader.java"
+			],
+			[
+				"spatiaindex",
+				"neo4j-graph-collections/src/main/java/org/neo4j/collections/rtree/SpatialIndexReader.java"
+			],
+			[
+				"pack",
+				"http-range/package.json"
+			],
+			[
+				"laer",
+				"app/js/dotcloud/Layer.js"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"index",
+				"app/index.html"
+			],
+			[
+				"app.",
+				"server-side/app.js"
+			],
+			[
+				"index.js",
+				"app/js/dotcloud.js/index.js"
+			],
+			[
+				"app",
+				"server-side/app.js"
+			],
+			[
+				"net",
+				"app/js/dotcloud.js/net.js"
+			],
+			[
+				"layer",
+				"app/js/dotcloud.js/Layer.js"
+			],
+			[
+				"la",
+				"app/js/dotcloud.js/Layer.js"
+			],
+			[
+				"map",
+				"app/js/dotcloud.js/Map.js"
+			],
+			[
+				"in",
+				"app/index.html"
+			],
+			[
+				"layers",
+				"app/layers.json"
+			],
+			[
+				"lae",
+				"app/layers.json"
+			],
+			[
+				"dot",
+				"app/js/dotcloud.js"
+			],
+			[
+				"dou",
+				"app/js/dotcloud.js"
+			],
+			[
+				"1.sql",
+				"conf/evolutions/default/1.sql"
+			],
+			[
+				"conf",
+				"conf/application.conf"
+			],
+			[
+				"logg",
+				"logs/application.log"
+			],
+			[
+				"appl",
+				"conf/application.conf"
+			],
+			[
+				"b",
+				"project/Build.scala"
+			],
+			[
+				"con",
+				"conf/application.conf"
+			],
+			[
+				"ap",
+				"conf/application.conf"
+			],
+			[
+				"1.",
+				"conf/evolutions/default/1.sql"
+			],
+			[
+				"grancontest",
+				"test/bdd/GrantWaterControllerTest.scala"
+			],
+			[
+				"gracontest",
+				"test/bdd/GrantWaterControllerTest.scala"
+			],
+			[
+				"rot",
+				"conf/routes"
+			],
+			[
+				"buil",
+				"project/Build.scala"
+			],
+			[
+				"plugins",
+				"project/plugins.sbt"
+			],
+			[
+				"grantcontr",
+				"app/controllers/GrantWaterController.java"
+			],
+			[
+				"depen",
+				"app/module/Dependencies.java"
+			],
+			[
+				"route",
+				"conf/routes"
+			],
+			[
+				"buid",
+				"project/Build.scala"
+			],
+			[
+				"r",
+				"conf/routes"
+			],
+			[
+				"depende",
+				"akvo-app/conf/dependencies.yml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 276.0,
+	"status_bar_visible": true
+}

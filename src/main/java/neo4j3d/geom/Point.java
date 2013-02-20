@@ -24,4 +24,8 @@ public class Point extends Geometry {
 		return z;
 	}
 
+	@Override
+	public BBOX getBBOX() {
+		return null;
+	}
 }
