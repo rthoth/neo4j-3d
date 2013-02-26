@@ -7,7 +7,7 @@ public class LoadIndexException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public LoadIndexException(Throwable cause) {
-		super(cause);
+	public LoadIndexException(String message, Throwable cause) {
+		super(message, cause);
 	}
 }

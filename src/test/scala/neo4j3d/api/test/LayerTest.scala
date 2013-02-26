@@ -36,7 +36,9 @@ class LayerTest extends Specification with Neo4jGraphTest with Logging with GeoT
 		"add a new point" in new Graph {
 			val sgds = new SpatialGraphDatabaseServiceImpl(graph)
 
-			val layer = sgds getOrCreateLayer ("another", Map[String, Object]("limit" -> 10.asInstanceOf[Integer], "extent" -> Array[Double](-50, -50, -50, 50, 50, 50)))
+			val layer = sgds getOrCreateLayer ("another", Map[String, Object](
+				"limit" -> int2Integer(10),
+				"extent" -> Array[Double](-50, -50, -50, 50, 50, 50)))
 
 			val x, y, z = -50 + random * 100
 

@@ -4,7 +4,7 @@ import java.util.Map;
 
 import neo4j3d.api.Index;
 import neo4j3d.api.SpatialNode;
-import neo4j3d.core.index.InvalidPropertiesException;
+import neo4j3d.api.SpatialProperties;
 import neo4j3d.geom.BBOX;
 
 import org.neo4j.graphdb.GraphDatabaseService;
@@ -23,31 +23,28 @@ public class OSRI implements Index {
 	@SuppressWarnings("unused")
 	private GraphDatabaseService gds;
 
-	private OcTree octree;
-
+	@SuppressWarnings("unused")
 	private BBOX universe;
 
+	@SuppressWarnings("unused")
 	private int limit;
 
-	public OSRI(Node node, GraphDatabaseService gds,
-			Map<String, Object> properties) {
-		this.gds = gds;
-		octree = new OcTree(node);
-		if (!octree.hasUniverse()) {
-			if (properties != null) {
-				double[] bbox = (double[]) properties.get("extent");
-				int limit = (Integer) properties.get("limit");
-
-				octree.universe(BBOX.from(bbox), limit);
-			} else
-				throw new InvalidPropertiesException("Properties are null");
-
-		}
-	}
+	private Node root;
 
 	@Override
 	public Index add(final SpatialNode spatial) {
-		Node rTreeRoot = octree.add(spatial);
+		return this;
+	}
+
+	@Override
+	public Index start(Node node, GraphDatabaseService gds,
+			Map<String, Object> properties) {
+		root = node;
+
+		if (root.hasProperty(SpatialProperties.EXTENT)) {
+			double[] extent = (double[]) root.getProperty(SpatialProperties.EXTENT);
+		}
+
 		return this;
 	}
 

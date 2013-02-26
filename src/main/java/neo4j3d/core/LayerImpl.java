@@ -8,10 +8,8 @@ import neo4j3d.api.LoadIndexException;
 import neo4j3d.api.SpatialNode;
 import neo4j3d.geom.Geometry;
 
-import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
 
 public class LayerImpl implements Layer {
 
@@ -39,15 +37,10 @@ public class LayerImpl implements Layer {
 
 	private Index getIndex() {
 		if (index == null) {
-			Relationship relation = node.getSingleRelationship(
-					SpatialRelationShipType.LAYER_INDEX, Direction.OUTGOING);
-
-			if (relation == null)
-				throw new NoRelationException(SpatialRelationShipType.LAYER_INDEX);
 			try {
-				index = Neo4j3D.loadIndex(relation.getEndNode(), gds, properties);
+				index = Neo4j3D.loadIndex(node).start(node, gds, properties);
 			} catch (Exception e) {
-				throw new LoadIndexException(e);
+				throw new LoadIndexException("Loading index exception", e);
 			}
 		}
 		return index;
