@@ -6,6 +6,10 @@ scalaVersion := "2.10.0"
 
 sbtVersion := "0.12.2"
 
+javacOptions += "-g"
+
+scalacOptions += "-g:notailcalls"
+
 
 libraryDependencies ++= Seq(
 	"org.neo4j" % "neo4j" % "1.9.M04",
@@ -25,3 +29,5 @@ EclipseKeys.withSource := true
 EclipseKeys.executionEnvironment := Some(EclipseExecutionEnvironment.JavaSE17)
 
 EclipseKeys.skipParents in ThisBuild := false
+
+EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource
