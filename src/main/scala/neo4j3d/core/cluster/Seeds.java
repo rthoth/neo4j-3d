@@ -34,7 +34,7 @@ public class Seeds {
 		}
 
 		if (logger.isDebugEnabled())
-			logger.debug("Maximum straight");
+			logger.debug("Found max distance between " + volumes.size() + " volumes");
 
 		LinkedList<Point> deque = new LinkedList<Point>();
 		deque.add(volumes.get(seedStraight[0]).getPoint());

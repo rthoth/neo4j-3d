@@ -60,19 +60,31 @@ class SeedsTest extends Specification with Logging {
 			clusters.size should equalTo(centers.size)
 		}
 
-		"7 initial groups nearest 3 spected in 100k points" in {
+		"7 initial groups nearest 7 spected in 10k points" in {
 
 			val centers = Seq[(Double, Double, Double)](
 				(0, 0, 0), (2, 2, 2), (-2, 2, 0), (0, 0, 2),
 				(0, 2, 2), (4, 4, 4), (0, 0, -4), (-4, 4, 0),
 				(0, 0, 10))
 
-			val clusters = Seeds.apply(volumes(centers, 100000), centers.size)
+			val clusters = Seeds.apply(volumes(centers, 10000), centers.size)
 
 			clusters.size should equalTo(centers.size)
 
 			for (cluster <- clusters)
 				found(cluster, centers) should beTrue
+		}
+
+		"13 initial groups nearest 13 spected in 100k points" in {
+			val centers = Seq[(Double, Double, Double)](
+				(0, 0, 0), (2, 2, 2), (0, 2, 2), (0, 4, -2),
+				(-2, 2, 2), (-4, 2, -2), (-2, 2, -2), (0, 2, -2),
+				(-2, -2, 0), (-2, -4, -2), (-4, -2, 0), (-2, -2, -2),
+				(0, 0, -10))
+
+			val clusters = Seeds.apply(volumes(centers, 1000), centers.size)
+
+			clusters.size should equalTo(centers.size)
 		}
 	}
 }
