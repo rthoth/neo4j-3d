@@ -43,8 +43,20 @@ public class Point implements BBox {
 	}
 
 	@Override
+	public Tuple3<Double, Double, Double> maximum() {
+		return getCoordinates();
+	}
+
+	@Override
+	public Tuple3<Double, Double, Double> minimum() {
+		return getCoordinates();
+	}
+
+	@Override
 	public String toString() {
 		return "{" + x + ", " + ", " + y + ", " + z + ")";
 	}
+	
+	
 
 }

@@ -17,4 +17,8 @@ public interface BBox {
 
 	Point getPoint();
 
+	Tuple3<Double, Double, Double> minimum();
+
+	Tuple3<Double, Double, Double> maximum();
+
 }

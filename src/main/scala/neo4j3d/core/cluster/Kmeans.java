@@ -3,6 +3,7 @@ package neo4j3d.core.cluster;
 import java.util.List;
 
 import neo4j3d.core.BBox;
+import neo4j3d.core.Tuple2;
 import neo4j3d.core.geom.Point;
 
 /**
@@ -28,9 +29,22 @@ public class Kmeans implements Clusterer {
 
 		List<Point> seeds = Seeds.apply(volumes, kmax);
 
+		double minW = Double.POSITIVE_INFINITY;
+		Tuple2<Double, List<Cluster>> possibleSolution = null;
+
 		for (int k = 2; k <= kmax; k++) {
-			List<Cluster> solution = KmeansAlgo.apply(seeds.subList(0, k), volumes);
+			Tuple2<Double, List<Cluster>> solution = StrictKmeans.apply(
+					seeds.subList(0, k), volumes);
+
+			if (solution._1 < minW) {
+				possibleSolution = solution;
+				minW = solution._1;
+			}
 		}
+
+		if (possibleSolution != null)
+			return possibleSolution._2;
+
 		return null;
 	}
 

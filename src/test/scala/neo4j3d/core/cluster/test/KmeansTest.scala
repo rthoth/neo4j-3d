@@ -1,34 +1,33 @@
 package neo4j3d.core.cluster.test
 
-import scala.collection.JavaConversions.seqAsJavaList
+import scala.collection.JavaConversions._
 import scala.collection.Seq.apply
-import scala.math.random
 
 import org.specs2.mutable.Specification
 
 import neo4j3d.core.cluster.Clusterer
 import neo4j3d.core.cluster.Kmeans
-import neo4j3d.core.geom.Point
+import neo4j3d.test.U3DUtil
 
-class KmeansTest extends Specification {
+class KmeansTest extends Specification with U3DUtil {
 
 	"Kmeans" should {
 		"create 5 cluster from 10k points" in {
 
-			val centers = Seq[(Double, Double, Double)]((0, 0, 0), (2, 2, -2), (-2, -2, -2), (0, 0, 3), (0, 0, -3))
+			val centers = Seq[(Double, Double, Double)]((-50, 0, 0), (0, 50, 0), (50, 0, 0))
 
-			val points = for (i <- 0 until 10000) yield {
-				val center = centers((random * centers.size).intValue)
-				new Point(center._1 - 1 + random * 2, center._2 - 1 + random * 2, center._3 - 1 + random * 2)
-			}
+			val vols = volumes(centers, 10000);
 
-			val kmeans: Clusterer = new Kmeans(50)
+			val kmeans: Clusterer = new Kmeans(100)
 
-			val clusters = kmeans.cluster(points)
+			val clusters = kmeans.cluster(vols)
 
 			clusters must not beNull
 
-			clusters.size() must equalTo(5)
+			for (cl <- clusters)
+				info(cl.getPoint())
+
+			clusters.size() must equalTo(centers.size)
 
 		}
 	}

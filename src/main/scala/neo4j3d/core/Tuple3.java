@@ -13,4 +13,13 @@ public class Tuple3<T1, T2, T3> {
 		this._3 = _3;
 	}
 
+	public boolean equals(T1 _1, T2 _2, T3 _3) {
+		return this._1.equals(_1) && this._2.equals(_2) && this._3.equals(_3);
+	}
+
+	@Override
+	public String toString() {
+		return "(" + _1.toString() + ", " + _2.toString() + ", " + _3.toString()
+				+ ")";
+	}
 }

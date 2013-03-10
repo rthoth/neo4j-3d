@@ -6,12 +6,7 @@ import java.util.List;
 import neo4j3d.core.BBox;
 import neo4j3d.core.geom.Point;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class Seeds {
-
-	private static Logger logger = LoggerFactory.getLogger(Seeds.class);
 
 	public static List<Point> apply(List<BBox> volumes, final int kmax) {
 
@@ -29,12 +24,10 @@ public class Seeds {
 					limitDistance = distance;
 					seedStraight[0] = i;
 					seedStraight[1] = j;
+					i = j;
 				}
 			}
 		}
-
-		if (logger.isDebugEnabled())
-			logger.debug("Found max distance between " + volumes.size() + " volumes");
 
 		LinkedList<Point> deque = new LinkedList<Point>();
 		deque.add(volumes.get(seedStraight[0]).getPoint());
@@ -69,6 +62,9 @@ public class Seeds {
 		return deque;
 	}
 
+	/*
+	 * Geodesic distance
+	 */
 	private static double distance(Point point, double[] straight) {
 
 		double x = point.x - straight[0];
@@ -83,19 +79,6 @@ public class Seeds {
 			z = 0 - z;
 
 		return x + y + z;
-		/*
-		 * double qp[] = new double[] { straight[0] - point.x, straight[1] -
-		 * point.y, straight[2] - point.z };
-		 * 
-		 * double i = qp[1] * straight[5] - qp[2] * straight[4]; double j = qp[2] *
-		 * straight[3] - qp[0] * straight[5]; double k = qp[0] * straight[4] - qp[1]
-		 * * straight[3];
-		 * 
-		 * double den = i * i + j * j + k * k; double num = straight[3] *
-		 * straight[3] + straight[4] * straight[4] + straight[5] * straight[5];
-		 * 
-		 * return sqrt(den / num);
-		 */
 	}
 
 	private static double[] makeStraightVector(Point q, Point t) {
