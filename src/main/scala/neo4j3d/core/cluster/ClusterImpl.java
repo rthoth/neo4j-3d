@@ -3,9 +3,6 @@ package neo4j3d.core.cluster;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.lang.Math.pow;
-
-import java.util.LinkedList;
-
 import neo4j3d.core.BBox;
 import neo4j3d.core.Tuple3;
 import neo4j3d.core.geom.Point;
@@ -15,11 +12,12 @@ public class ClusterImpl implements Cluster {
 	private BBox center;
 	private Tuple3<Double, Double, Double> minimum;
 	private Tuple3<Double, Double, Double> maximum;
-	private LinkedList<BBox> objects = null;
+	@SuppressWarnings("unused")
+	private Cluster parent;
 
 	public ClusterImpl(Point center) {
 		this.center = center;
-		minimum = center.getCoordinates();
+		minimum = center.getCenterCoordinates();
 		maximum = minimum;
 	}
 
@@ -54,6 +52,8 @@ public class ClusterImpl implements Cluster {
 
 		// getObjects().add(volume);
 
+		volume.setCluster(this);
+
 		return changed;
 
 	}
@@ -70,20 +70,13 @@ public class ClusterImpl implements Cluster {
 	}
 
 	@Override
-	public Tuple3<Double, Double, Double> getCoordinates() {
-		return center.getCoordinates();
-	}
-
-	private LinkedList<BBox> getObjects() {
-		if (objects != null)
-			return objects;
-
-		return objects = new LinkedList<BBox>();
+	public Tuple3<Double, Double, Double> getCenterCoordinates() {
+		return center.getCenterCoordinates();
 	}
 
 	@Override
-	public Point getPoint() {
-		return center.getPoint();
+	public Point getCenter() {
+		return center.getCenter();
 	}
 
 	@Override
@@ -129,4 +122,10 @@ public class ClusterImpl implements Cluster {
 		double z = (maximum._3 + minimum._3) / 2;
 		center = new Point(x, y, z);
 	}
+
+	@Override
+	public void setCluster(Cluster cluster) {
+		this.parent = cluster;
+	}
+
 }

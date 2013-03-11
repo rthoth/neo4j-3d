@@ -1,5 +1,6 @@
 package neo4j3d.core;
 
+import neo4j3d.core.cluster.Cluster;
 import neo4j3d.core.geom.Point;
 
 /**
@@ -13,12 +14,14 @@ public interface BBox {
 
 	double distanceOf(BBox other);
 
-	Tuple3<Double, Double, Double> getCoordinates();
+	Point getCenter();
 
-	Point getPoint();
+	Tuple3<Double, Double, Double> getCenterCoordinates();
+
+	Tuple3<Double, Double, Double> maximum();
 
 	Tuple3<Double, Double, Double> minimum();
 
-	Tuple3<Double, Double, Double> maximum();
+	void setCluster(Cluster cluster);
 
 }

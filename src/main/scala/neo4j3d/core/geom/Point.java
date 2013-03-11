@@ -4,6 +4,7 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 import neo4j3d.core.BBox;
 import neo4j3d.core.Tuple3;
+import neo4j3d.core.cluster.Cluster;
 
 public class Point implements BBox {
 
@@ -11,6 +12,7 @@ public class Point implements BBox {
 	public final double y;
 	public final double z;
 	private Tuple3<Double, Double, Double> coordinates = null;
+	private Cluster cluster;
 
 	public Point(double x, double y, double z) {
 		this.x = x;
@@ -20,7 +22,7 @@ public class Point implements BBox {
 
 	@Override
 	public double distanceOf(BBox other) {
-		Tuple3<Double, Double, Double> center = other.getCoordinates();
+		Tuple3<Double, Double, Double> center = other.getCenterCoordinates();
 		/*
 		 * return sqrt(pow(center[0] - x, 2) + pow(center[1] - y, 2) + pow(center[2]
 		 * - z, 2));
@@ -30,7 +32,7 @@ public class Point implements BBox {
 	}
 
 	@Override
-	public Tuple3<Double, Double, Double> getCoordinates() {
+	public Tuple3<Double, Double, Double> getCenterCoordinates() {
 		if (coordinates != null)
 			return coordinates;
 		else
@@ -38,25 +40,28 @@ public class Point implements BBox {
 	}
 
 	@Override
-	public Point getPoint() {
+	public Point getCenter() {
 		return this;
 	}
 
 	@Override
 	public Tuple3<Double, Double, Double> maximum() {
-		return getCoordinates();
+		return getCenterCoordinates();
 	}
 
 	@Override
 	public Tuple3<Double, Double, Double> minimum() {
-		return getCoordinates();
+		return getCenterCoordinates();
 	}
 
 	@Override
 	public String toString() {
 		return "{" + x + ", " + ", " + y + ", " + z + ")";
 	}
-	
-	
+
+	@Override
+	public void setCluster(Cluster cluster) {
+		this.cluster = cluster;
+	}
 
 }

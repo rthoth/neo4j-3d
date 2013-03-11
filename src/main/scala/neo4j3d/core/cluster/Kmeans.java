@@ -27,7 +27,7 @@ public class Kmeans implements Clusterer {
 	public List<Cluster> cluster(List<BBox> volumes) {
 		final int kmax = volumes.size() / minSize;
 
-		List<Point> seeds = Seeds.apply(volumes, kmax);
+		List<Point> seeds = ClusterSeeder.apply(volumes, kmax);
 
 		double minW = Double.POSITIVE_INFINITY;
 		Tuple2<Double, List<Cluster>> possibleSolution = null;

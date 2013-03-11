@@ -3,9 +3,9 @@ package neo4j3d.core.cluster.test
 import scala.collection.JavaConversions._
 import scala.collection.Seq._
 import org.specs2.mutable.Specification
-import neo4j3d.core.cluster.Seeds
 import neo4j3d.test.U3DUtil
 import neo4j3d.core.cluster.StrictKmeans
+import neo4j3d.core.cluster.ClusterSeeder
 
 class KmeansAlgoTest extends Specification with U3DUtil {
 
@@ -20,7 +20,7 @@ class KmeansAlgoTest extends Specification with U3DUtil {
 				(0, 0, 10))
 
 			val vols = volumes(centers, 10000);
-			val seeds = Seeds.apply(vols, centers.size);
+			val seeds = ClusterSeeder.apply(vols, centers.size);
 
 			val clusters = StrictKmeans.apply(seeds, vols);
 
