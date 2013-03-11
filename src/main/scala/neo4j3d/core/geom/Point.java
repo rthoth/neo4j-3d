@@ -8,11 +8,12 @@ import neo4j3d.core.cluster.Cluster;
 
 public class Point implements BBox {
 
+	@SuppressWarnings("unused")
+	private Cluster cluster;
+	private Tuple3<Double, Double, Double> coordinates = null;
 	public final double x;
 	public final double y;
 	public final double z;
-	private Tuple3<Double, Double, Double> coordinates = null;
-	private Cluster cluster;
 
 	public Point(double x, double y, double z) {
 		this.x = x;
@@ -32,16 +33,29 @@ public class Point implements BBox {
 	}
 
 	@Override
-	public Tuple3<Double, Double, Double> getCenterCoordinates() {
-		if (coordinates != null)
-			return coordinates;
-		else
-			return coordinates = new Tuple3<Double, Double, Double>(x, y, z);
+	public boolean equals(Object obj) {
+		if (obj instanceof Point)
+			return equalsPoint((Point) obj);
+
+		return false;
+
+	}
+
+	private boolean equalsPoint(Point obj) {
+		return obj.x == x && obj.y == y && obj.z == z;
 	}
 
 	@Override
 	public Point getCenter() {
 		return this;
+	}
+
+	@Override
+	public Tuple3<Double, Double, Double> getCenterCoordinates() {
+		if (coordinates != null)
+			return coordinates;
+		else
+			return coordinates = new Tuple3<Double, Double, Double>(x, y, z);
 	}
 
 	@Override
@@ -55,13 +69,13 @@ public class Point implements BBox {
 	}
 
 	@Override
-	public String toString() {
-		return "{" + x + ", " + ", " + y + ", " + z + ")";
+	public void setCluster(Cluster cluster) {
+		this.cluster = cluster;
 	}
 
 	@Override
-	public void setCluster(Cluster cluster) {
-		this.cluster = cluster;
+	public String toString() {
+		return "(" + x + ", " + y + ", " + z + ")";
 	}
 
 }

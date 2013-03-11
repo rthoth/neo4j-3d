@@ -1,10 +1,12 @@
 package neo4j3d.core.cluster;
 
+import static java.lang.Math.sqrt;
+
 import java.util.LinkedList;
 import java.util.List;
 
 import neo4j3d.core.BBox;
-import neo4j3d.core.Tuple2;
+import neo4j3d.core.Tuple3;
 import neo4j3d.core.geom.Point;
 
 public class ClusterSeeder {
@@ -12,23 +14,25 @@ public class ClusterSeeder {
 	public static List<Point> apply(List<BBox> volumes, final int kmax) {
 
 		int length = volumes.size();
-		double limitDistance = 0D;
 		double distance = 0D;
 
-		Tuple2<Integer, Integer> maxStraight = searchMaxStraight(volumes);
+		Tuple3<Integer, Integer, Double> maxStraight = searchMaxStraight(volumes);
 
 		int maxStraightStart = maxStraight._1, maxStraightEnd = maxStraight._2;
 
 		LinkedList<Point> deque = new LinkedList<Point>();
-		deque.add(volumes.get(maxStraightStart).getCenter());
-		deque.add(volumes.get(maxStraightEnd).getCenter());
+		// deque.add(volumes.get(maxStraightStart).getCenter());
+		// deque.add(volumes.get(maxStraightEnd).getCenter());
 
-		final int kmaxG = kmax - 1; // look at up
+		final int kmaxG = kmax - 2; // look at up
 		double distances[] = new double[kmaxG];
-		distances[0] = limitDistance;
+		distances[0] = maxStraight._3;
 
 		// calculate straight vector formula
-		double straight[] = makeStraightVector(deque.get(0), deque.get(1));
+		double straight[] = makeStraightVector(volumes.get(maxStraightStart)
+				.getCenter(), volumes.get(maxStraightEnd).getCenter());
+
+		deque.push(volumes.get(maxStraightStart).getCenter());
 
 		for (int i = 0; i < length; i++) {
 			if (i != maxStraightStart && i != maxStraightEnd) {
@@ -49,50 +53,59 @@ public class ClusterSeeder {
 			}
 		}
 
+		deque.add(1, volumes.get(maxStraightEnd).getCenter());
+
 		return deque;
 	}
 
-	public static Tuple2<Integer, Integer> searchMaxStraight(List<BBox> volumes) {
+	public static Tuple3<Integer, Integer, Double> searchMaxStraight(
+			List<BBox> volumes) {
 		final int length = volumes.size();
 
 		double distance = 0D, limitDistance = 0D;
 
 		int start = 0, end = 0;
 
-		for (int i = 0; i < length; i++) {
-			BBox vol1 = volumes.get(i);
-			for (int j = i + 1; j < length; j++) {
-				BBox vol2 = volumes.get(j);
+		for (int iStart = 0; iStart < length; iStart++) {
+			BBox vol1 = volumes.get(iStart);
+			int currentStart = iStart;
+
+			for (int iEnd = iStart + 1; iEnd < length; iEnd++) {
+				BBox vol2 = volumes.get(iEnd);
 				distance = vol1.distanceOf(vol2);
 				if (distance > limitDistance) {
 					limitDistance = distance;
-					start = i;
-					end = j;
-					i = j;
+					start = currentStart;
+					end = iEnd;
+					iStart = iEnd - 1;
 				}
 			}
 		}
 
-		return new Tuple2<Integer, Integer>(start, end);
+		return new Tuple3<Integer, Integer, Double>(start, end, limitDistance);
 	}
 
 	/*
-	 * Geodesic distance
+	 * 
 	 */
 	private static double distance(Point point, double[] straight) {
 
-		double x = point.x - straight[0];
-		double y = point.y - straight[1];
-		double z = point.z - straight[2];
+		double x = straight[0] - point.x;
+		double y = straight[1] - point.y;
+		double z = straight[2] - point.z;
 
-		if (x < 0)
-			x = 0 - x;
-		if (y < 0)
-			y = 0 - y;
-		if (z < 0)
-			z = 0 - z;
+		double vx = straight[3];
+		double vy = straight[4];
+		double vz = straight[5];
 
-		return x + y + z;
+		double i = (y * vz) - (z * vy);
+		double j = (z * vx) - (x * vz);
+		double k = (x * vy) - (y * vx);
+
+		double den = i * i + j * j + k * k;
+		double num = vx * vx + vy * vy + vz * vz;
+
+		return sqrt(den / num);
 	}
 
 	private static double[] makeStraightVector(Point q, Point t) {
