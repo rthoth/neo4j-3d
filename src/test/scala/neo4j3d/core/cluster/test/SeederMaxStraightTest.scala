@@ -14,7 +14,7 @@ class SeederMaxStraightTest extends Specification with U3DUtil {
 
 		"(-50,-50,-50) random(10k, [(-45,-45,-45),...(45,45,45)]) (50,50,50)" in {
 
-			val (fixed, factor) = (5, 5)
+			val (fixed, factor) = (1, 1)
 
 			val i1 = fixed + (random * factor).toInt
 
@@ -33,7 +33,7 @@ class SeederMaxStraightTest extends Specification with U3DUtil {
 			val i3 = fixed + (random * factor).toInt
 
 			val seq3 = for (i <- 0 until i3) yield {
-				val x, y, z = (random * 90) - 45
+				val x, y, z = (random * 80) - 40
 				new Point(x, y, z)
 			}
 
