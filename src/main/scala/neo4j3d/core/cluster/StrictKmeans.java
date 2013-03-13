@@ -18,7 +18,7 @@ public class StrictKmeans {
 
 		group(clusters, volumes);
 
-		return new Tuple2<Double, List<Cluster>>(calculateW(clusters), clusters);
+		return Tuple2.from(calculateW(clusters), clusters);
 	}
 
 	private static List<Cluster> clustersFrom(List<Point> centers) {

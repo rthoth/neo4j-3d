@@ -13,8 +13,6 @@ class SeederTest extends Specification with U3DUtil {
 
 	"Seeder" should {
 
-		skipAll
-
 		"5 initial groups in 1k points" in {
 			val centers = Seq[(Double, Double, Double)]((0, 0, 0), (2, 2, 2), (-2, -2, -2), (-2, 2, 2), (0, 0, 2))
 			val clusters = ClusterSeeder.apply(volumes(centers, 1000), centers.size);

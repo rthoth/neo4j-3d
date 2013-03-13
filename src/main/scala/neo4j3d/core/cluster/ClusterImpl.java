@@ -37,12 +37,12 @@ public class ClusterImpl implements Cluster {
 
 		boolean changed = false;
 		if (!minimum.equals(xmin, ymin, zmin)) {
-			minimum = new Tuple3<Double, Double, Double>(xmin, ymin, zmin);
+			minimum = Tuple3.from(xmin, ymin, zmin);
 			changed = true;
 		}
 
 		if (!maximum.equals(xmax, ymax, zmax)) {
-			maximum = new Tuple3<Double, Double, Double>(xmax, ymax, zmax);
+			maximum = Tuple3.from(xmax, ymax, zmax);
 			changed = true;
 		}
 

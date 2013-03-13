@@ -55,7 +55,7 @@ public class Point implements BBox {
 		if (coordinates != null)
 			return coordinates;
 		else
-			return coordinates = new Tuple3<Double, Double, Double>(x, y, z);
+			return coordinates = Tuple3.from(x, y, z);
 	}
 
 	@Override

@@ -12,28 +12,28 @@ class SeederMaxStraightTest extends Specification with U3DUtil {
 
 	"Spected find 2 points" should {
 
-		"(-50,-50,-50) random(10k, [(-45,-45,-45),...(45,45,45)]) (50,50,50)" in {
+		"(-50,-50,-50) ... random(10k, [(-49,-49,-49),...(49,49,49)]) ... (50,50,50)" in {
 
 			val (fixed, factor) = (1, 1)
 
 			val i1 = fixed + (random * factor).toInt
 
 			val seq1 = for (i <- 0 until i1) yield {
-				val x, y, z = (random * 90) - 45
+				val x, y, z = (random * 98) - 49
 				new Point(x, y, z)
 			}
 
 			val i2 = fixed + (random * factor).toInt
 
 			val seq2 = for (i <- 0 until i2) yield {
-				val x, y, z = (random * 90) - 45
+				val x, y, z = (random * 98) - 49
 				new Point(x, y, z)
 			}
 
 			val i3 = fixed + (random * factor).toInt
 
 			val seq3 = for (i <- 0 until i3) yield {
-				val x, y, z = (random * 80) - 40
+				val x, y, z = (random * 98) - 49
 				new Point(x, y, z)
 			}
 
@@ -49,11 +49,12 @@ class SeederMaxStraightTest extends Specification with U3DUtil {
 			val first = result(0);
 			var second = result(1);
 
-			first should equalTo(expectedFirst)
-
-			second should equalTo(expectedSecond)
-
-			true
+			if (first == expectedFirst)
+				second should equalTo(expectedSecond)
+			else if (first == expectedSecond)
+				second should equalTo(expectedFirst)
+			else
+				throw new Exception
 		}
 	}
 }

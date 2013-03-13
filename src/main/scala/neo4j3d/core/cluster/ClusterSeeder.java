@@ -1,11 +1,13 @@
 package neo4j3d.core.cluster;
 
+import static java.lang.Math.min;
 import static java.lang.Math.sqrt;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import neo4j3d.core.BBox;
+import neo4j3d.core.Tuple2;
 import neo4j3d.core.Tuple3;
 import neo4j3d.core.geom.Point;
 
@@ -13,76 +15,78 @@ public class ClusterSeeder {
 
 	public static List<Point> apply(List<BBox> volumes, final int kmax) {
 
-		int length = volumes.size();
-		double distance = 0D;
+		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> maxStraight = searchMaxStraight(volumes);
 
-		Tuple3<Integer, Integer, Double> maxStraight = searchMaxStraight(volumes);
+		Point startPoint = maxStraight._1._2.getCenter();
+		Point endPoint = maxStraight._2._2.getCenter();
 
-		int maxStraightStart = maxStraight._1, maxStraightEnd = maxStraight._2;
+		int startIndex = maxStraight._1._1;
+		int endIndex = maxStraight._2._1;
+
+		double[] straight = makeStraightVector(startPoint, endPoint);
+
+		int kmaxDyn = kmax - 1;
+		double[] distances = new double[kmaxDyn];
 
 		LinkedList<Point> deque = new LinkedList<Point>();
-		// deque.add(volumes.get(maxStraightStart).getCenter());
-		// deque.add(volumes.get(maxStraightEnd).getCenter());
 
-		final int kmaxG = kmax - 2; // look at up
-		double distances[] = new double[kmaxG];
-		distances[0] = maxStraight._3;
-
-		// calculate straight vector formula
-		double straight[] = makeStraightVector(volumes.get(maxStraightStart)
-				.getCenter(), volumes.get(maxStraightEnd).getCenter());
-
-		deque.push(volumes.get(maxStraightStart).getCenter());
-
-		for (int i = 0; i < length; i++) {
-			if (i != maxStraightStart && i != maxStraightEnd) {
-				distance = distance(volumes.get(i).getCenter(), straight);
-				l1: for (int j = 1; j < kmaxG; j++) {
-					if (distance > distances[j]) {
-						for (int k = kmaxG - 1; k > j; k--)
+		for (int i = 0; i < volumes.size(); i++) {
+			if (i != startIndex && i != endIndex) {
+				final Point point = volumes.get(i).getCenter();
+				double distance = distance(point, straight);
+				for (int d = 0; d < distances.length; d++) {
+					if (distance > distances[d]) {
+						for (int k = distances.length - 1; k > d; k--)
 							distances[k] = distances[k - 1];
+						distances[d] = distance;
+						deque.add(min(d, deque.size()), point);
 
-						distances[j] = distance;
-						deque.add(j, volumes.get(i).getCenter());
-						if (deque.size() > kmax)
+						if (deque.size() == kmaxDyn)
 							deque.removeLast();
-
-						break l1;
+						break;
 					}
 				}
 			}
 		}
 
-		deque.add(1, volumes.get(maxStraightEnd).getCenter());
+		deque.push(endPoint);
+		deque.push(startPoint);
 
 		return deque;
 	}
 
-	public static Tuple3<Integer, Integer, Double> searchMaxStraight(
+	public static Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> searchMaxStraight(
 			List<BBox> volumes) {
-		final int length = volumes.size();
 
-		double distance = 0D, limitDistance = 0D;
+		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> endTuple = searchFartherstOf(
+				0, volumes);
 
-		int start = 0, end = 0;
+		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> startTuple = searchFartherstOf(
+				endTuple._2._1, volumes);
 
-		for (int iStart = 0; iStart < length; iStart++) {
-			BBox vol1 = volumes.get(iStart);
-			int currentStart = iStart;
+		return Tuple3.from(startTuple._2, endTuple._2, startTuple._3);
+	}
 
-			for (int iEnd = iStart + 1; iEnd < length; iEnd++) {
-				BBox vol2 = volumes.get(iEnd);
-				distance = vol1.distanceOf(vol2);
-				if (distance > limitDistance) {
-					limitDistance = distance;
-					start = currentStart;
-					end = iEnd;
-					iStart = iEnd - 1;
+	private static Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> searchFartherstOf(
+			int startIndex, List<BBox> volumes) {
+		final BBox startVol = volumes.get(startIndex);
+		double length = 0D, maxLength = 0D;
+		int endIndex = startIndex;
+		BBox vol = null;
+		for (int i = 0; i < volumes.size(); i++) {
+			if (i != startIndex) {
+				final BBox endVol = volumes.get(i);
+				length = startVol.distanceOf(endVol);
+				if (length > maxLength) {
+					vol = endVol;
+					endIndex = i;
+					maxLength = length;
 				}
 			}
 		}
 
-		return new Tuple3<Integer, Integer, Double>(start, end, limitDistance);
+		return Tuple3.from(Tuple2.from(startIndex, startVol),
+				Tuple2.from(endIndex, vol), maxLength);
 	}
 
 	/*

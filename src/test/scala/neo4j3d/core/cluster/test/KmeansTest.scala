@@ -12,14 +12,14 @@ import neo4j3d.test.U3DUtil
 class KmeansTest extends Specification with U3DUtil {
 
 	"Kmeans" should {
-		skipAll
-		"create 5 cluster from 10k points" in {
+		
+		"create 5 cluster from 100k points" in {
 
 			val centers = Seq[(Double, Double, Double)]((-50, 0, 0), (0, 50, 0), (50, 0, 0))
 
-			val vols = volumes(centers, 20);
+			val vols = volumes(centers, 1000000);
 
-			val kmeans: Clusterer = new Kmeans(5)
+			val kmeans: Clusterer = new Kmeans(1000)
 
 			val clusters = kmeans.cluster(vols)
 
