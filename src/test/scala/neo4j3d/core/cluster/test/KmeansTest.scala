@@ -17,9 +17,9 @@ class KmeansTest extends Specification with U3DUtil {
 
 			val centers = Seq[(Double, Double, Double)]((-50, 0, 0), (0, 50, 0), (50, 0, 0))
 
-			val vols = volumes(centers, 10000);
+			val vols = volumes(centers, 100000);
 
-			val kmeans: Clusterer = new Kmeans(100)
+			val kmeans: Clusterer = new Kmeans(10)
 
 			val clusters = kmeans.cluster(vols)
 
