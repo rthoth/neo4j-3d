@@ -1,84 +1,86 @@
 package neo4j3d.core.cluster;
 
-import static java.lang.Math.min;
-import static java.lang.Math.sqrt;
+import static neo4j3d.core.Math.distance;
+import static neo4j3d.core.Math.straight;
 
-import java.util.LinkedList;
+import java.util.Collection;
 import java.util.List;
+import java.util.SortedSet;
 
 import neo4j3d.core.BBox;
+import neo4j3d.core.Math.Straight;
 import neo4j3d.core.Tuple2;
 import neo4j3d.core.Tuple3;
 import neo4j3d.core.geom.Point;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
+
 public class ClusterSeeder {
 
-	public static List<Point> apply(List<BBox> volumes, final int kmax) {
+	public static List<Point> apply(List<BBox> volumes, int kmax) {
 
-		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> maxStraight = searchMaxStraight(volumes);
+		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> currentStraight = searchMaxStraight(volumes);
 
-		Point startPoint = maxStraight._1._2.getCenter();
-		Point endPoint = maxStraight._2._2.getCenter();
+		Point startPoint = currentStraight._1._2.getCenter();
+		Point endPoint = currentStraight._2._2.getCenter();
 
-		int startIndex = maxStraight._1._1;
-		int endIndex = maxStraight._2._1;
+		int startIndex = currentStraight._1._1;
+		int endIndex = currentStraight._2._1;
 
-		double[] straight = makeStraightVector(startPoint, endPoint);
+		Straight straight = straight(startPoint, endPoint);
+		SortedSet<Integer> indexes = Sets.newTreeSet();
+		indexes.add(startIndex);
+		indexes.add(endIndex);
 
-		int kmaxDyn = kmax - 1;
-		double[] distances = new double[kmaxDyn];
+		List<Point> seeds = Lists.newArrayListWithCapacity(kmax);
+		seeds.add(startPoint);
+		seeds.add(endPoint);
 
-		LinkedList<Point> deque = new LinkedList<Point>();
+		kmax -= 2;
+		for (int k = 0; k < kmax; k++) {
+			Tuple2<Integer, Point> tuple = fartherstOf(volumes, straight, indexes);
+			indexes.add(tuple._1);
+			seeds.add(tuple._2);
+			straight = straight(tuple._2, straight.center());
+		}
 
+		return seeds;
+	}
+
+	/*
+	 * 
+	 */
+
+	private static Tuple2<Integer, Point> fartherstOf(List<BBox> volumes,
+			Straight straight, Collection<Integer> exclude) {
+		double distance, maxDistance = 0D;
+		int index = 0;
 		for (int i = 0; i < volumes.size(); i++) {
-			if (i != startIndex && i != endIndex) {
-				final Point point = volumes.get(i).getCenter();
-				double distance = distance(point, straight);
-				for (int d = 0; d < distances.length; d++) {
-					if (distance > distances[d]) {
-						for (int k = distances.length - 1; k > d; k--)
-							distances[k] = distances[k - 1];
-						distances[d] = distance;
-						deque.add(min(d, deque.size()), point);
-
-						if (deque.size() == kmaxDyn)
-							deque.removeLast();
-						break;
-					}
+			if (!exclude.contains(i)) {
+				distance = distance(volumes.get(i).getCenter(), straight);
+				if (distance > maxDistance) {
+					maxDistance = distance;
+					index = i;
 				}
 			}
 		}
 
-		deque.push(endPoint);
-		deque.push(startPoint);
-
-		return deque;
+		return Tuple2.from(index, volumes.get(index).getCenter());
 	}
 
-	public static Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> searchMaxStraight(
-			List<BBox> volumes) {
-
-		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> endTuple = searchFartherstOf(
-				0, volumes);
-
-		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> startTuple = searchFartherstOf(
-				endTuple._2._1, volumes);
-
-		return Tuple3.from(startTuple._2, endTuple._2, startTuple._3);
-	}
-
-	private static Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> searchFartherstOf(
+	private static Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> fartherstOf(
 			int startIndex, List<BBox> volumes) {
+
 		final BBox startVol = volumes.get(startIndex);
+
 		double length = 0D, maxLength = 0D;
 		int endIndex = startIndex;
-		BBox vol = null;
 		for (int i = 0; i < volumes.size(); i++) {
 			if (i != startIndex) {
 				final BBox endVol = volumes.get(i);
 				length = startVol.distanceOf(endVol);
 				if (length > maxLength) {
-					vol = endVol;
 					endIndex = i;
 					maxLength = length;
 				}
@@ -86,33 +88,17 @@ public class ClusterSeeder {
 		}
 
 		return Tuple3.from(Tuple2.from(startIndex, startVol),
-				Tuple2.from(endIndex, vol), maxLength);
+				Tuple2.from(endIndex, volumes.get(endIndex)), maxLength);
 	}
 
-	/*
-	 * 
-	 */
-	private static double distance(Point point, double[] straight) {
+	public static Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> searchMaxStraight(
+			List<BBox> volumes) {
 
-		double x = straight[0] - point.x;
-		double y = straight[1] - point.y;
-		double z = straight[2] - point.z;
+		int endIndex = fartherstOf(0, volumes)._2._1;
 
-		double vx = straight[3];
-		double vy = straight[4];
-		double vz = straight[5];
+		Tuple3<Tuple2<Integer, BBox>, Tuple2<Integer, BBox>, Double> maxStraight = fartherstOf(
+				endIndex, volumes);
 
-		double i = (y * vz) - (z * vy);
-		double j = (z * vx) - (x * vz);
-		double k = (x * vy) - (y * vx);
-
-		double den = i * i + j * j + k * k;
-		double num = vx * vx + vy * vy + vz * vz;
-
-		return sqrt(den / num);
-	}
-
-	private static double[] makeStraightVector(Point q, Point t) {
-		return new double[] { q.x, q.y, q.z, t.x - q.x, t.y - q.y, t.z - q.z };
+		return Tuple3.from(maxStraight._2, maxStraight._1, maxStraight._3);
 	}
 }

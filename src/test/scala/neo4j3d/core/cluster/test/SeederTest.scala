@@ -12,6 +12,8 @@ class SeederTest extends Specification with U3DUtil {
 	"Kmeans Seeder Tests" title
 
 	"Seeder" should {
+		
+		skipAll
 
 		"5 initial groups in 1k points" in {
 			val centers = Seq[(Double, Double, Double)]((0, 0, 0), (2, 2, 2), (-2, -2, -2), (-2, 2, 2), (0, 0, 2))

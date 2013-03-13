@@ -25,7 +25,7 @@ public class Kmeans implements Clusterer {
 
 	@Override
 	public List<Cluster> cluster(List<BBox> volumes) {
-		final int kmax = volumes.size() / minSize;
+		final int kmax = minSize;
 
 		List<Point> seeds = ClusterSeeder.apply(volumes, kmax);
 

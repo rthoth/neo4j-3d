@@ -11,6 +11,8 @@ class KmeansAlgoTest extends Specification with U3DUtil {
 
 	"KmeansAlgo" should {
 
+		skipAll
+		
 		"7 centers in 10k random points" in {
 			val centers = Seq[(Double, Double, Double)](
 				(0, 0, 0), (3, 3, 3), (-3, 3, 3),
