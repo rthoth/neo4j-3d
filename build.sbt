@@ -1,4 +1,4 @@
-name := "neo4j3d-core"
+name := "neo4j3d"
 
 version := "1.0-ALPHA"
 
